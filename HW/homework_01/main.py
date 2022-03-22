@@ -19,9 +19,9 @@ def is_prime(num):
                 break
             break
     return list(filter(lambda x: x not in f, num))
-ODD = "odd"
-EVEN = "even"
-PRIME = "prime"
+ODD = lambda x: x%2
+EVEN = lambda x: x%2!=0
+PRIME = 1
 
 
 def filter_numbers():
