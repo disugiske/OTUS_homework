@@ -13,7 +13,7 @@ def power_numbers(*numbers):
 def is_prime(num):
     f=[]
     for i in num:
-        if i==0:
+        if i==0 or i==1:
             f.append(i)
         for a in range(2, i):
             if i % a == 0:
