@@ -23,15 +23,9 @@ ODD = lambda x: x%2
 EVEN = lambda x: x%2!=0
 PRIME = 1
 
-
-def filter_numbers():
-    """
-    функция, которая на вход принимает список из целых чисел,
-    и возвращает только чётные/нечётные/простые числа
-    (выбор производится передачей дополнительного аргумента)
-
-    >>> filter_numbers([1, 2, 3], ODD)
-    <<< [1, 3]
-    >>> filter_numbers([2, 3, 4, 5], EVEN)
-    <<< [2, 4]
-    """
+def filter_numbers(number,func):
+    if func == 1:
+        return is_prime(number)
+    else:
+        return list(filter(func, number))
+print(filter_numbers([2, 3, 4, 56, 53, 7, 9, 5, 97, 6], PRIME))
