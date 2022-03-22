@@ -6,7 +6,7 @@
 
 def power_numbers(*numbers):
     return list(map(lambda x: x ** 2, numbers))
-power_numbers(1, 2, 5, 7)
+
 
 
 # filter types
@@ -28,4 +28,4 @@ def filter_numbers(number,func):
         return is_prime(number)
     else:
         return list(filter(func, number))
-print(filter_numbers([2, 3, 4, 56, 53, 7, 9, 5, 97, 6], PRIME))
+
