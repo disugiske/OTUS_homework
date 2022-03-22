@@ -19,13 +19,14 @@ def is_prime(num):
                 break
             break
     return list(filter(lambda x: x not in f, num))
-
+ODD = 1
+EVEN = 2
+PRIME = 3
 
 def filter_numbers(number,func):
-    if func == PRIME:
+    if func == 3:
         return is_prime(number)
-    if func == ODD:
+    if func == 1:
         return list(filter(lambda x: x%2, number))
-    if func == EVEN:
+    if func == 2:
         return list(filter(lambda x: x%2!=0, number))
-
