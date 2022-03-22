@@ -27,6 +27,6 @@ def filter_numbers(number,func):
     if func == PRIME:
         return is_prime(number)
     if func == ODD:
-        return list(filter(lambda x: x%2, number))
+        return list(filter(lambda x: x%2==0, number))
     if func == EVEN:
         return list(filter(lambda x: x%2!=0, number))
