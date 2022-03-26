@@ -11,22 +11,19 @@ def power_numbers(*numbers):
 
 # filter types
 def is_prime(num):
-    f=[]
-    for i in num:
-        if i==0 or i==1:
-            f.append(i)
-        for a in range(2, i):
-            if i % a == 0:
-                f.append(i)
-                break
-    return list(filter(lambda x: x not in f, num))
+    if num==0 or num==1:
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
 ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
 
 def filter_numbers(number,func):
     if func == PRIME:
-        return is_prime(number)
+        return list(filter(is_prime, number))
     if func == ODD:
         return list(filter(lambda x: x%2!=0, number))
     if func == EVEN:
