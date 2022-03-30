@@ -2,10 +2,10 @@ from abc import ABC
 from homework_02.exceptions import LowFuelError, NotEnoughFuel, CargoOverload
 
 class Vehicle(ABC):
-    started = 0
-    weight = 0
-    fuel = 0
-    fuel_consumption = 0
+    started = None
+    weight = None
+    fuel = None
+    fuel_consumption = None
     def __init__(self, weight, fuel, fuel_consumption):
         self.weight = weight
         self.fuel = fuel
@@ -19,4 +19,3 @@ class Vehicle(ABC):
     def move(self):
         if self.fuel_consumption * self.weight <= self.fuel:
             self.fuel -= self.fuel_consumption * self.weight
-
