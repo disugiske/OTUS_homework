@@ -6,16 +6,17 @@ class Vehicle(ABC):
     started = False
     weight = 1
     fuel = 0
-    fuel_consumption = 1
+    fuel_consumption = 20
     max_cargo = 1
     def __init__(self, weight, fuel, fuel_consumption):
         self.weight = weight
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
     def start(self, started):
-        if started is False:
-            if self.fuel_consumption > 0:
-                return started is True
+        if started == False:
+            if self.fuel > 0:
+                started = True
+                return started
             else:
                 raise LowFuelError
     def move(self, dist):
