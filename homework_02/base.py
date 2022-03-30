@@ -17,4 +17,6 @@ class Vehicle(ABC):
             else:
                 raise LowFuelError
     def move(self):
+        if self.fuel_consumption * self.weight <= self.fuel:
+            self.fuel -= self.fuel_consumption * self.weight
 
