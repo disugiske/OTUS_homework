@@ -1,8 +1,12 @@
 from homework_02.base import Vehicle
-class Car(Vehicle):
-    engine=None
-car = Car()
-    def set_engine(self, engine):
-        car=self.engine()
-        return car
+from homework_02.engine import Engine
 
+
+
+
+
+class Car(Vehicle):
+    engine=Engine()
+    def set_engine(self, engine):
+        car=Car(engine)
+        return car

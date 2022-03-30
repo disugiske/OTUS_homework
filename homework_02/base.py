@@ -7,11 +7,11 @@ class Vehicle(ABC):
     weight = 1
     fuel = 0
     fuel_consumption = 20
-    max_cargo = 1
-    def __init__(self, weight, fuel, fuel_consumption):
+    def __init__(self, weight, fuel, fuel_consumption, max_cargo):
         self.weight = weight
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
+        self.max_cargo = max_cargo
     def start(self, started):
         if started == False:
             if self.fuel > 0:
