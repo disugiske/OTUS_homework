@@ -1,7 +1,6 @@
-class LowFuelError (Exception):
+class LowFuelError(Exception):
     pass
-class NotEnoughFuel (Exception):
+class NotEnoughFuel(Exception):
     pass
-class CargoOverload (Exception):
+class CargoOverload(Exception):
     pass
-
