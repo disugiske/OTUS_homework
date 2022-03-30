@@ -20,3 +20,4 @@ class Vehicle(ABC):
     def move(self, dist):
         if self.fuel_consumption * dist <= self.fuel:
             self.fuel -= self.fuel_consumption * dist
+            return self.fuel
