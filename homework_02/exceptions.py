@@ -1,6 +1,8 @@
-"""
-Объявите следующие исключения:
-- LowFuelError
-- NotEnoughFuel
-- CargoOverload
-"""
+try:
+    except LowFuelError
+        print(LowFuelError)
+    except NotEnoughFuel
+        print(NotEnoughFuel)
+    except CargoOverload
+        print(CargoOverload)
+
