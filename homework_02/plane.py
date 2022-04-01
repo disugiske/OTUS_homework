@@ -3,8 +3,8 @@ from homework_02.exceptions import CargoOverload
 
 
 class Plane(Vehicle):
-    cargo = 0
-    max_cargo=100
+    cargo = None
+    max_cargo = None
     def __init__(self, max_cargo, weight, fuel, fuel_consumption):
         super().__init__(weight, fuel, fuel_consumption)
         self.max_cargo = max_cargo
