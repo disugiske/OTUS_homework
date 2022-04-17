@@ -15,7 +15,7 @@ RUN poetry config virtualenvs.create false
 COPY pyproject.toml poetry.lock ./
 RUN poetry install
 
-COPY homework_03 .
+COPY testing/homework_03 .
 
 EXPOSE 8000
 
