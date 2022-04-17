@@ -7,7 +7,7 @@ docker run -it -p 8000:8000 app
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /
+WORKDIR /homework_03
 
 RUN pip install poetry==1.1.13
 RUN poetry config virtualenvs.create false
@@ -15,7 +15,7 @@ RUN poetry config virtualenvs.create false
 COPY pyproject.toml poetry.lock ./
 RUN poetry install
 
-COPY testing/homework_03 .
+COPY . .
 
 EXPOSE 8000
 
