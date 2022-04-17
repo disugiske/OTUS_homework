@@ -6,6 +6,9 @@ authors = ["disugiske <disugiske@yandex.ru>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+fastapi = "^0.75.1"
+uvicorn = "^0.17.6"
+docker = "^5.0.3"
 
 [tool.poetry.dev-dependencies]
 
