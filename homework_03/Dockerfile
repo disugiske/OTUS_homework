@@ -1,5 +1,7 @@
 FROM python:3.9-buster
 
+LABEL Что бы запустить нужно выполнить команду: docker run -it -p 8000:8000 app
+
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /homework_03
