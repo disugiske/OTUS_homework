@@ -42,15 +42,11 @@ async def create_users(session: AsyncSession):
         get_posts(),
     )
     for list_data in users_data:
-        for a in list_data:
-            if a == 'name':
-                session.add(User(name=list_data.get(a)))
-            if a == 'username':
-                session.add(User(username=list_data.get(a)))
-            if a == 'email':
-                session.add(User(email=list_data.get(a)))
-            if a == 'userId':
-                session.add(User(user_id=list_data.get(a)))
+        session.add(User(name=list_data.get('name'),
+                         username=list_data.get('username'),
+                         email=list_data.get('email'),
+                         user_id=list_data.get('id'))
+                    )
     await session.commit()
 
 
