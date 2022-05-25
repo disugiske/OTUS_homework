@@ -33,30 +33,32 @@ async def init_table():
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
 
+
 async def create_users(session: AsyncSession):
-        users_data: List[dict]
-        posts_data: List[dict]
-        users_data, posts_data = await asyncio.gather(
-            get_userdata(),
-            get_posts(),
-        )
-        for list_data in users_data:
-            for a in list_data:
-                if a == 'name':
-                    session.add(User(name=list_data.get(a)))
-                if a == 'username':
-                    session.add(User(username=list_data.get(a)))
-                if a == 'email':
-                    session.add(User(email=list_data.get(a)))
-                if a == 'userId':
-                    session.add(User(user_id=list_data.get(a)))
-        await session.commit()
+    users_data: List[dict]
+    posts_data: List[dict]
+    users_data, posts_data = await asyncio.gather(
+        get_userdata(),
+        get_posts(),
+    )
+    for list_data in users_data:
+        for a in list_data:
+            if a == 'name':
+                session.add(User(name=list_data.get(a)))
+            if a == 'username':
+                session.add(User(username=list_data.get(a)))
+            if a == 'email':
+                session.add(User(email=list_data.get(a)))
+            if a == 'userId':
+                session.add(User(user_id=list_data.get(a)))
+    await session.commit()
 
 
 async def async_main():
     async with async_session() as session:
         await init_table()
         await create_users(session)
+
 
 def main():
     asyncio.run(async_main())

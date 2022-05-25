@@ -16,7 +16,7 @@ from sqlalchemy import (
     Text,
     Column,
     String,
-    Integer,
+    Integer, ForeignKey,
 )
 
 PG_CONN_URI = os.environ.get("SQLALCHEMY_PG_CONN_URI") or "postgresql+asyncpg://username:passwd!@localhost:5432/blog"
@@ -32,16 +32,18 @@ Session = AsyncSession(engine, expire_on_commit=False)
 
 class User(Base):
     __tablename__ = "user"
-    name = Column(String, unique=True)
-    username = Column(String, unique=True)
-    email = Column(String, unique=True)
-    user_id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    username = Column(String)
+    email = Column(String)
+    user_id = Column(Integer)
     posts = relationship("Post", back_populates="user")
 
 
 class Post(Base):
     __tablename__ = "posts"
-    user_id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
     title = Column(String)
     body = Column(Text)
     user = relationship("User", back_populates="posts")
