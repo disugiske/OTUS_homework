@@ -19,7 +19,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
 from homework_04.jsonplaceholder_requests import get_userdata, get_posts
-from homework_04.models import Base, engine, User, Session
+from homework_04.models import Base, engine, User, Session, Post
 
 async_session = sessionmaker(
     engine,
@@ -45,7 +45,16 @@ async def create_users(session: AsyncSession):
         session.add(User(name=list_data.get('name'),
                          username=list_data.get('username'),
                          email=list_data.get('email'),
-                         user_id=list_data.get('id'))
+                         #user_id=list_data.get('id')
+                        )
+                    )
+    await session.commit()
+
+    for post_dict_data in posts_data:
+        session.add(Post(user_id=post_dict_data.get('userId'),
+                         title=post_dict_data.get('title'),
+                         body=post_dict_data.get('body')
+                         )
                     )
     await session.commit()
 
