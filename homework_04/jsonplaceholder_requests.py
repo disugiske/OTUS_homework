@@ -14,12 +14,11 @@ async def get_userdata() -> Dict:
     async with aiohttp.ClientSession() as session:
         async with session.get(USERS_DATA_URL) as resp:
             userdata: dict = await resp.json()
-        return userdata
+            return userdata
 
 
 async def get_posts() -> Dict:
     async with aiohttp.ClientSession() as session:
         async with session.get(POSTS_DATA_URL) as resp:
             postdata: dict = await resp.json()
-            print(postdata)
-        return postdata
+            return postdata
