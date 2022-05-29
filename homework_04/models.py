@@ -11,7 +11,7 @@
 import os
 
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from sqlalchemy import (
     Text,
     Column,
@@ -27,7 +27,7 @@ engine = create_async_engine(
 )
 
 Base = declarative_base()
-Session = AsyncSession(engine, expire_on_commit=False)
+Session = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 
 class User(Base):
