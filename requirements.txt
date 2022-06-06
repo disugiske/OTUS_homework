@@ -10,3 +10,16 @@ idna==3.3
 multidict==6.0.2
 SQLAlchemy==1.4.36
 yarl==1.7.2
+
+fastapi~=0.75.1
+starlette~=0.17.1
+requests~=2.27.1
+pydantic~=1.9.0
+loguru~=0.6.0
+pytest~=7.1.1
+Faker~=13.3.4
+docker~=5.0.3
+
+config~=0.5.1
+alembic~=1.7.7
+Flask~=2.1.2
