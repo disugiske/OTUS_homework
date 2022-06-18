@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+  <h1>User posts:</h1>
+  {% if users %}
+    <ul class="list-group">
+      {% for user in users %}
+        <li class="list-group-item w-75">
+          <a class="text-decoration-none"
+             href="{{ url_for('details', user_id=user.id) }}">
+            <p class="m-0">{{ user.name }} aka {{ user.username }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <div><strong>No Users</strong></div>
+  {% endif %}
+  <br>
+
+  <div>
+    <a href="{{ url_for('add') }}">
+      <button type="button" class="btn btn-danger">Add users</button>
+    </a>
+  </div>
+  <form action="{{ url_for('index') }}" method="POST">
+    <input type="submit" name="say" class="btn btn-danger my-1" value="Load users from API">
+  </form>
+   <div>
+    <a href="{{ url_for('index',dellall=1) }}">
+      <button type="button" class="btn btn-danger">Delete all users</button>
+    </a>
+  </div>
+{% endblock %}
+
+{% block title %}
+  Users list
+{% endblock %}

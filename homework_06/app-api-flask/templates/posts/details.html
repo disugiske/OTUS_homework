@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Product #{{ user.id }}
+{% endblock %}
+
+
+{% block body %}
+  <div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">User {{ user.name }}</h5>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Username: {{ user.username }}</li>
+        <li class="list-group-item">Email: {{ user.email }}</li>
+        <li class="list-group-item"></li>
+    </ul>
+    <p class="card-text">{{ body }}</p>
+  </div>
+
+</div>
+  <br>
+  <div>
+    <a href="{{ url_for('index') }}">
+      Back to users list
+    </a>
+  </div>
+
+  <br>
+  <div>
+    <button
+      type="button"
+      class="btn btn-danger btn-sm"
+      data-bs-toggle="modal"
+      data-bs-target="#modal-del-product"
+    >Delete user
+    </button>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-del-product" tabindex="-1" aria-labelledby="modal-delete-product-label"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-del-product-title">Delete user #{{ user.id }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Delete user <code>{{ user.name }}</code>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="delete-product" onclick="deleteItem()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="{{ url_for('static', filename='js/product-details.js') }}"></script>
+
+{% endblock %}
