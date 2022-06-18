@@ -45,7 +45,6 @@ async def create_users(session: AsyncSession):
         session.add(User(name=list_data.get('name'),
                          username=list_data.get('username'),
                          email=list_data.get('email'),
-                         #user_id=list_data.get('id')
                         )
                     )
     await session.commit()
